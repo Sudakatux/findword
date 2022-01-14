@@ -9,7 +9,6 @@ public class StructureTest {
     public void shouldBeAbleToPutAWordInTheStructure(){
         MyDataStructure testStructure = new MyDataStructure();
         String someWord = "word";
-
         testStructure.putWord("word");
         assertAll(()->{
            assertTrue(testStructure.getWordsForPrefix(someWord).contains(someWord));

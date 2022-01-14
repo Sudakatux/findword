@@ -43,9 +43,12 @@ public class MyDataStructure {
     public Set<String> getWordsForPrefix(String prefix){
         MyDataStructure instance = this;
         String[] charecters = prefix.split("");
-        for (int i =0;i<charecters.length;i++) {
+        for (int i =0;i < charecters.length ;i++) {
             String currentCharecter = (charecters[i]);
             instance = instance.get(currentCharecter);
+            if(instance == null){
+                return Set.of();
+            }
         }
         return instance.words;
     }
