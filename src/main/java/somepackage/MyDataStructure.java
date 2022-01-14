@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class MyDataStructure {
     private final Map root = new HashMap<>();
@@ -43,17 +42,11 @@ public class MyDataStructure {
 
     public Set<String> getWordsForPrefix(String prefix){
         MyDataStructure instance = this;
-        Set<String> bagOfWords = new HashSet<>();
         String[] charecters = prefix.split("");
         for (int i =0;i<charecters.length;i++) {
             String currentCharecter = (charecters[i]);
             instance = instance.get(currentCharecter);
-            bagOfWords.addAll(instance
-                    .words
-                    .stream()
-                    .filter(a->a.startsWith(prefix))
-                    .collect(Collectors.toSet()));
         }
-        return bagOfWords;
+        return instance.words;
     }
 }
